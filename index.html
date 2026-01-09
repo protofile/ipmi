@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="flex items-center justify-between">
-                            <a href="#">
+                            <a href="#" class="logo">
                                 <img src="assets/images/logo-ipmi.png" alt="">
                             </a>
                             <nav>
@@ -33,7 +33,7 @@
                                 <a href="#dosen">Lecturer</a>
                                 <a href="#fasilitas">Facilities</a>
                                 <a href="#partner">Our Partner</a>
-                                <a href="#daftar" class="btn primary">REGISTER NOW</a>
+                                <a href="#" class="btn primary reg-btn">REGISTER NOW</a>
                             </nav>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
             <form action="" class="reg-form">
                 <h3>Registration Form</h3>
                 <div class="inp-group">
-                    <label for="">DATA DIRI ANDA</label>
+                    <label for="">PERSONAL INFORMATION</label>
                     <div class="grid grid-cols-2 gap-2.5">
                         <div class="col-span-2">
                             <input type="text" placeholder="Full Name">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="inp-group">
-                    <label for="">Preferred Study Program</label>
+                    <label for="">PREFERRED STUDY PROGRAM</label>
                     <div class="grid grid-cols-2 gap-2.5">
                         <div class="col-span-2">
                             <select name="" id="">
@@ -335,7 +335,7 @@
                         <div class="flex flex-col gap-5">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies nisl ut pharetra molestie. Nam in diam velit. Mauris laoreet efficitur arcu nec semper. Fusce felis enim, molestie sit amet viverra in, dictum et lacus. Phasellus in mi ut dui eleifend elementum.</p>
                             <div>
-                                <a href="#" class="btn primary">REGISTER NOW</a>
+                                <a href="#" class="btn primary reg-btn">REGISTER NOW</a>
                             </div>
                         </div>
                     </div>
@@ -565,7 +565,11 @@
                         var targetEl = document.getElementById(targetId);
                         if (targetEl) {
                             e.preventDefault();
-                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            var offsetTop = targetEl.offsetTop - 100;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
                         }
                     }
                 });
@@ -642,6 +646,31 @@
                     0: { items: 3 },
                     600: { items: 4 },
                     1000: { items: 5 }
+                }
+            });
+
+            // Add scrolled class to header on scroll
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 50) {
+                    $('header').addClass('scrolled');
+                } else {
+                    $('header').removeClass('scrolled');
+                }
+            });
+
+            // Register Now buttons - scroll to form and focus on Full Name input
+            $('a.reg-btn').on('click', function(e) {
+                e.preventDefault();
+                var formElement = $('.reg-form');
+                var fullNameInput = $('.reg-form').find('input[placeholder="Full Name"]');
+                
+                if (formElement.length) {
+                    var offsetTop = formElement.offset().top - 140;
+                    $('html, body').animate({
+                        scrollTop: offsetTop
+                    }, 800, function() {
+                        fullNameInput.focus();
+                    });
                 }
             });
         });
