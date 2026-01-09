@@ -560,27 +560,67 @@
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('nav a[href^="#"]').forEach(function (anchor) {
-                anchor.addEventListener('click', function (e) {
-                    var href = this.getAttribute('href');
-                    if (href && href.startsWith('#')) {
-                        var targetId = href.slice(1);
-                        var targetEl = document.getElementById(targetId);
-                        if (targetEl) {
-                            e.preventDefault();
-                            var offsetTop = targetEl.offsetTop - 100;
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
+        // jQuery smooth scroll + active link handling + scroll-spy (100px offset)
+        $(function() {
+            var $navLinks = $('nav a[href^="#"]');
+
+            function setActiveLink($link) {
+                $navLinks.removeClass('active');
+                $link.addClass('active');
+            }
+
+            $navLinks.on('click', function(e) {
+                var $this = $(this);
+                var href = $this.attr('href');
+                if (href && href.charAt(0) === '#') {
+                    var targetId = href.slice(1);
+                    var $target = $('#' + targetId);
+                    if ($target.length) {
+                        e.preventDefault();
+                        var offsetTop = $target.offset().top - 100;
+                        $('html, body').animate({ scrollTop: offsetTop }, 600, function() {
+                            setActiveLink($this);
+                        });
+                    }
+                }
+            });
+
+            function updateActiveOnScroll() {
+                var scrollPos = $(window).scrollTop() + 110; // slight buffer past offset
+                var currentId = null;
+
+                $navLinks.each(function() {
+                    var href = $(this).attr('href');
+                    if (!href || href.charAt(0) !== '#') return;
+                    var id = href.slice(1);
+                    var $sec = $('#' + id);
+                    if ($sec.length) {
+                        var top = $sec.offset().top;
+                        var bottom = top + $sec.outerHeight();
+                        if (scrollPos >= top && scrollPos < bottom) {
+                            currentId = id;
+                            return false; // break
                         }
                     }
                 });
-            });
+
+                if (currentId) {
+                    var $activeLink = $navLinks.filter('[href="#' + currentId + '"]');
+                    setActiveLink($activeLink);
+                }
+            }
+
+            $(window).on('scroll', updateActiveOnScroll);
+            updateActiveOnScroll();
         });
 
         $(document).ready(function(){
+
+            $(".bt-burger").click(function(){
+                $($(this).children("i")).toggleClass("ri-menu-2-line ri-close-line");
+                $("nav").toggleClass("show");
+            });
+
             $('.testimonial-slider').owlCarousel({
                 items: 1,
                 loop: true,

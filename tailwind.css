@@ -15,11 +15,17 @@
     }
 
     body{
-        @apply bg-slate-50 pt-[100px] overflow-x-hidden overflow-y-auto;
+        @apply bg-slate-50 pt-[100px];
+    }
+    .master{
+        @apply w-full overflow-x-hidden;
     }
   
     section{
-        @apply py-16 w-screen overflow-x-hidden;
+        @apply py-16 w-screen;
+    }
+    section#partner{
+        @apply overflow-x-hidden;
     }
     .container{
         @apply max-w-[calc(100vw-120px)];
@@ -39,6 +45,10 @@
 
     p{
         @apply text-md text-slate-700 leading-[160%];
+    }
+
+    a:hover{
+        @apply no-underline;
     }
 
     .btn{
@@ -64,6 +74,10 @@
 
     nav{
         @apply flex items-center gap-6;
+    }
+
+    nav a.active{
+        @apply text-ip-blue-1 font-brandon-bold;
     }
 
     .home{
@@ -326,12 +340,22 @@
     }
     /* FOR MOBILE AND FOR DESKTOP END*/
 
+    .bt-burger{
+        @apply text-2xl text-ip-blue-1;
+    }
+
     @media only screen and (max-width:768px){
         header{
             @apply w-screen;
         }
         nav{
-            @apply hidden fixed top-[80px] right-0 bg-white flex-col shadow-xl shadow-slate-300 rounded-2xl border border-slate-200 items-end;
+            @apply opacity-0 fixed p-8 pt-[70px] top-2.5 right-2.5 bg-white flex-col shadow-xl shadow-blue-100 rounded-2xl border border-slate-200 items-end transition-all;
+        }
+        nav.show{
+            @apply opacity-100
+        }
+        .bt-burger{
+            @apply z-50;
         }
         .container{
             @apply max-w-[calc(100vw-40px)];
