@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities{
+
+    @font-face {
+        font-family: 'Brandon';
+        src: url('/assets/fonts/Brandon-Grotesque-Light.otf') format('opentype');
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Brandon Bold';
+        src: url('/assets/fonts/Brandon-Grotesque-Medium.otf') format('opentype');
+        font-style: normal;
+    }
+
+    body{
+        @apply bg-slate-50;
+    }
+  
+    section{
+        @apply py-16;
+    }
+    .container{
+        @apply max-w-[calc(100vw-120px)];
+    }
+
+    *{
+        font-family: 'Brandon';
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        @apply font-playfair text-ip-blue-1 font-semibold;
+    }
+
+    h1{@apply text-5xl;}
+    h2{@apply text-4xl;}
+    h3{@apply text-lg;}
+
+    p{
+        @apply text-md text-slate-700 leading-[160%];
+    }
+
+    .btn{
+        @apply rounded-full text-md py-4 px-6;
+    }
+    .btn.primary{
+        @apply bg-ip-blue-1 text-white;
+    }
+
+    nav{
+        @apply flex items-center gap-6;
+    }
+
+    .home{
+        @apply mt-24 relative pt-0;
+    }
+    .home .text{
+        @apply flex flex-col gap-5 pb-16;
+    }
+
+    .reg-form{
+        @apply flex flex-col gap-5 bg-white rounded-3xl p-10 shadow-2xl absolute top-0 right-[60px] w-full max-w-[440px] border border-slate-200;
+    }
+    .reg-form input[type="text"],
+    .reg-form input[type="email"],
+    .reg-form input[type="number"],
+    .reg-form select{
+        @apply w-full py-3 px-5 text-md border border-slate-200 rounded-lg;
+    }
+
+    .reg-form label{
+        @apply text-xs font-bold text-slate-500 mb-0 font-brandon-bold;
+    }
+    .reg-form .inp-group{
+        @apply flex flex-col gap-2.5;
+    }
+
+    .about-card-1{
+        @apply h-[360px] w-full flex flex-col gap-5 justify-center bg-white shadow-2xl shadow-slate-200 p-10;
+    }
+    .about-card-1 .icon{
+        @apply text-[72px] text-ip-blue-1 -my-5;
+    }
+    .about-card-1 p{
+        @apply text-[22px] text-slate-700;
+    }
+    .about-card-1 span{
+        @apply text-md text-ip-orange-1 font-brandon-bold;
+    }
+    .tentang figure{
+        @apply shadow-2xl shadow-slate-200;
+    }
+    .tentang figure img{
+        @apply w-full h-[360px] block object-cover;
+    }
+
+    .about-card-2{
+        @apply flex flex-col justify-between h-[360px] p-10 bg-white shadow-2xl shadow-slate-200 border-t-4 border-t-ip-orange-1;
+    }
+    .about-card-2 .top-text{
+        @apply flex flex-col gap-2.5;
+    }
+    .about-card-2 .top-text .number{
+        @apply text-ip-blue-1 text-4xl;
+    }
+    .about-card-2 .top-text span{
+        @apply text-ip-orange-1 text-md font-brandon-bold;
+    }
+    .about-card-2 .bottom-text{
+        @apply flex items-center justify-between;
+    }
+    .about-card-2 .bottom-text .spacer{
+        @apply h-full w-[1px] bg-slate-200;
+    }
+    .about-card-2 .bottom-text h3{
+        @apply text-4xl text-ip-blue-1;
+    }
+    .about-card-2 .bottom-text span{
+        @apply text-xs font-brandon-bold text-ip-orange-1;
+    }
+
+    .ratio{
+        @apply w-full relative h-0;
+    }
+    .ratio-75{@apply pt-[75%]}
+    .ratio-1{@apply pt-[100%]}
+    .ratio-16{@apply pt-[56.25%]}
+    .ratio-125{@apply pt-[125%]}
+    
+    .ratio img,
+    .ratio iframe{
+        @apply w-full h-full absolute top-0 left-0;
+    }
+
+    .tentang figure.ratio img{
+        @apply h-auto;
+    }
+
+    .why-card{
+        @apply h-[240px] w-full bg-white shadow-2xl shadow-slate-200 p-10 mb-5 relative before:absolute;
+    }
+    .why-card .text{
+        @apply w-full max-w-[400px] flex flex-col gap-5 h-full;
+    }
+    .why-card .text h5{
+        @apply text-[18px] font-brandon-bold;
+    }
+    .why-card img{
+        @apply absolute bottom-0 right-10;
+    }
+    .why-card::before{
+        @apply w-full h-full border-2 border-ip-orange-1 opacity-0 top-0 left-0 transition-all z-10;
+    }
+    .why-card:hover::before{
+        @apply opacity-100 -top-2.5 left-2.5;
+    }
+
+    .testimonial-slider .item{
+        @apply flex gap-10 items-center w-full p-10;
+    }
+    .testimonial-slider .item .pic{
+        @apply w-[210px] h-[320px] flex-grow-0 flex-shrink-0 rounded-full border-[5px] border-white shadow-xl shadow-slate-300 overflow-hidden;
+    }
+    .testimonial-slider .item .pic img{
+        @apply w-full h-full object-cover block;
+    }
+    .testimonial-slider .item .text{
+        @apply flex flex-col gap-5;
+    }
+    .testimonial-slider .item .heads{
+        @apply flex flex-col gap-2.5;
+    }
+    .testimonial-slider .item .heads h5{
+        @apply text-xl text-ip-blue-1;
+    }
+    .testimonial-slider .item .heads span strong{
+        @apply font-brandon-bold;
+    }
+
+    .testimonial-slider .owl-prev,
+    .testimonial-slider .owl-next{
+        @apply w-10 h-10 !bg-ip-blue-1 !text-ip-orange-1 rounded-full text-2xl absolute top-1/2 -translate-y-1/2;
+    }
+    .testimonial-slider .owl-prev {
+        @apply -left-[40px];
+    }
+    .testimonial-slider .owl-next {
+        @apply -right-[40px];
+    }
+
+    .dosen-slider{
+        @apply p-14;
+    }
+    .dosen-card{
+        @apply bg-white px-10 pt-10 text-center border border-slate-100 relative before:absolute;
+    }
+    .dosen-card img{
+        @apply w-full h-[324px] object-contain;
+    }
+    .dosen-card h4{
+        @apply text-lg;
+    }
+    .dosen-card::before{
+        @apply w-full h-1/2 absolute left-0 bottom-0 bg-gradient-to-b from-[rgba(255,255,255,0)] to-white;
+    }
+    .dosen-slider .owl-prev,
+    .fasilitas-slider .owl-prev,
+    .partner-slider .owl-prev,
+    .dosen-slider .owl-next,
+    .fasilitas-slider .owl-next,
+    .partner-slider .owl-next{
+        @apply w-10 h-10 !bg-ip-blue-1 !text-ip-orange-1 rounded-full text-2xl absolute top-1/2 -translate-y-1/2;
+    }
+    .dosen-slider .owl-prev,
+    .fasilitas-slider .owl-prev,
+    .partner-slider .owl-prev {
+        @apply left-10;
+    }
+    .dosen-slider .owl-next,
+    .fasilitas-slider .owl-next,
+    .partner-slider .owl-next {
+        @apply right-10;
+    }
+    .fasilitas-card{
+        @apply relative;
+    }
+    .fasilitas-card .text{
+        @apply absolute w-full h-1/2 flex flex-col justify-end bottom-0 left-0 p-10 bg-gradient-to-b from-[rgba(19,71,156,0)] to-[rgba(19,71,156,1)];
+    }
+    .fasilitas-card .text h3{
+        @apply text-2xl text-white pb-2.5 relative before:absolute;
+    }
+    .fasilitas-card .text h3::before{
+        @apply w-10 h-1 bg-ip-orange-1 absolute left-0 bottom-0;
+    }
+
+    footer{
+        @apply bg-slate-200 mt-16;
+    }
+    footer .container{
+        @apply py-16;
+    }
+    .copyright{
+        @apply bg-ip-blue-1 py-4;
+    }
+    .copyright p{
+        @apply text-sm text-slate-100;
+    }
+    footer p strong{
+        @apply font-brandon-bold;
+    }
+    .foot-logo{
+        @apply mb-5;
+    }
+
+
+}
