@@ -189,9 +189,6 @@
         @apply -right-[40px];
     }
 
-    .dosen-slider{
-        @apply p-14;
-    }
     .dosen-card{
         @apply bg-white px-10 pt-10 text-center border border-slate-100 relative before:absolute;
     }
@@ -254,5 +251,45 @@
         @apply mb-5;
     }
 
+    section.cta{
+        @apply mt-16;
+    }
+    .cta-orange{
+        @apply bg-ip-orange-1 px-10 pt-10 mt-16;
+    }
+    .cta-orange img{
+        @apply w-full max-w-[440px] -mt-[340px];
+    }
+
+    /* PARTNER SLIDER */
+    .sponsor-slider-wrapper {
+        @apply relative w-full h-[80px] overflow-hidden;
+    }
+
+    .sponsor-slider {
+        @apply absolute w-auto whitespace-nowrap flex items-center gap-14;
+    }
+
+    /* Pause animation on hover */
+    .sponsor-slider-wrapper:hover .sponsor-slider {
+        animation-play-state: paused;
+    }
+
+    .sponsor-slider .item {
+        @apply inline-block w-auto h-[80px] -ml-[4px];
+    }
+
+    .sponsor-slider .item img {
+        @apply w-full h-full object-contain;
+    }
+
+    .slide-1 {
+        @apply animate-slide-slow;
+    }
+
+    .slide-2 {
+        @apply animate-slide-2-slow;
+    }
+    /* PARTNER SLIDER END */
 
 }

@@ -29,6 +29,20 @@ module.exports = {
       },
       lineHeight: {
         'leading-half': '0.5rem',
+      },
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-101%)' },
+        },
+        'slide-2': {
+          '0%': { transform: 'translateX(101%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'slide-slow': 'slide 12s linear infinite',
+        'slide-2-slow': 'slide-2 12s linear infinite',
       }
     },
   },
