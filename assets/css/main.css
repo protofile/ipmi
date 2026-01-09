@@ -568,12 +568,16 @@ video {
   }
 }
 
-.col-span-1 {
-  grid-column: span 1 / span 1;
-}
-
 .col-span-2 {
   grid-column: span 2 / span 2;
+}
+
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .mb-16 {
@@ -584,12 +588,12 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .inline-block {
@@ -606,10 +610,6 @@ video {
 
 .\!h-auto {
   height: auto !important;
-}
-
-.min-h-screen {
-  min-height: 100vh;
 }
 
 .transform {
@@ -656,8 +656,8 @@ video {
   gap: 1.25rem;
 }
 
-.pl-10 {
-  padding-left: 2.5rem;
+.pl-0 {
+  padding-left: 0px;
 }
 
 .text-center {
@@ -671,11 +671,6 @@ video {
 .\!text-md {
   font-size: 16px !important;
   line-height: 1rem !important;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .text-5xl {
@@ -696,6 +691,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .leading-relaxed {
@@ -739,12 +739,16 @@ video {
 }
 
 body {
+  overflow-y: auto;
+  overflow-x: hidden;
   --tw-bg-opacity: 1;
   background-color: rgb(248 250 252 / var(--tw-bg-opacity));
   padding-top: 100px;
 }
 
 section {
+  width: 100vw;
+  overflow-x: hidden;
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
@@ -863,6 +867,10 @@ nav {
   flex-direction: column;
   gap: 1.25rem;
   padding-bottom: 4rem;
+}
+
+.hero-bg {
+  width: 100%;
 }
 
 .reg-form {
@@ -1453,3 +1461,157 @@ section.cta {
 }
 
 /* PARTNER SLIDER END */
+
+/* FOR MOBILE AND FOR DESKTOP */
+
+@media only screen and (min-width:769px){
+  .for-mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width:768px){
+  .for-desktop {
+    display: none !important;
+  }
+}
+
+/* FOR MOBILE AND FOR DESKTOP END*/
+
+@media only screen and (max-width:768px){
+  header {
+    width: 100vw;
+  }
+
+  nav {
+    position: fixed;
+    top: 80px;
+    right: 0px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 1rem;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(226 232 240 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    --tw-shadow-color: #cbd5e1;
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
+  .container {
+    max-width: calc(100vw - 40px);
+  }
+
+  .reg-form {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3.5rem;
+    width: 100%;
+    max-width: calc(100vw - 40px);
+    padding: 1.25rem;
+  }
+
+  .home h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-card-1 {
+    height: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .about-card-2 {
+    height: auto;
+    gap: 2rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .why-card::before,
+        .why-card img {
+    display: none;
+  }
+
+  .why-card {
+    height: auto;
+  }
+
+  .testimonial-slider .item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+  }
+
+  .testimonial-slider .owl-nav,
+        .testimonial-slider .owl-prev {
+    display: none;
+  }
+
+  .cta-orange img {
+    display: none;
+  }
+
+  .cta-orange {
+    padding-bottom: 2.5rem;
+  }
+
+  .dosen-slider .owl-prev,
+        .fasilitas-slider .owl-prev {
+    left: -1.25rem;
+  }
+
+  .dosen-slider .owl-next,
+        .fasilitas-slider .owl-next {
+    right: -1.25rem;
+  }
+
+  .sponsor-slider {
+    gap: 1.25rem;
+  }
+
+  .sponsor-slider .item {
+    width: auto;
+  }
+
+  .sponsor-slider-wrapper {
+    width: 400%;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:pl-10 {
+    padding-left: 2.5rem;
+  }
+}

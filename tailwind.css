@@ -15,11 +15,11 @@
     }
 
     body{
-        @apply bg-slate-50 pt-[100px];
+        @apply bg-slate-50 pt-[100px] overflow-x-hidden overflow-y-auto;
     }
   
     section{
-        @apply py-16;
+        @apply py-16 w-screen overflow-x-hidden;
     }
     .container{
         @apply max-w-[calc(100vw-120px)];
@@ -71,6 +71,10 @@
     }
     .home .text{
         @apply flex flex-col gap-5 pb-16;
+    }
+
+    .hero-bg{
+        @apply w-full;
     }
 
     .reg-form{
@@ -308,5 +312,87 @@
         @apply animate-slide-2-slow;
     }
     /* PARTNER SLIDER END */
+
+    /* FOR MOBILE AND FOR DESKTOP */
+    @media only screen and (min-width:769px){
+        .for-mobile{
+            @apply !hidden;
+        }
+    }
+    @media only screen and (max-width:768px){
+        .for-desktop{
+            @apply !hidden;
+        }
+    }
+    /* FOR MOBILE AND FOR DESKTOP END*/
+
+    @media only screen and (max-width:768px){
+        header{
+            @apply w-screen;
+        }
+        nav{
+            @apply hidden fixed top-[80px] right-0 bg-white flex-col shadow-xl shadow-slate-300 rounded-2xl border border-slate-200 items-end;
+        }
+        .container{
+            @apply max-w-[calc(100vw-40px)];
+        }
+        .reg-form{
+            @apply p-5 relative top-auto right-auto w-full max-w-[calc(100vw-40px)] mx-auto mt-14;
+        }
+        .home h1{
+            @apply text-4xl;
+        }
+        h2{
+            @apply mb-5;
+        }
+        .about-card-1{
+            @apply px-5 h-auto;
+        }
+        .about-card-2{
+            @apply px-5 h-auto gap-8;
+        }
+
+        .why-card::before,
+        .why-card img{
+            @apply hidden;
+        }
+        .why-card{
+            @apply h-auto;
+        }
+
+        .testimonial-slider .item{
+            @apply flex-col pt-0 px-0 items-start;
+        }
+        .testimonial-slider .owl-nav,
+        .testimonial-slider .owl-prev{
+            @apply hidden;
+        }
+
+        .cta-orange img{
+            @apply hidden;
+        }
+        .cta-orange{
+            @apply pb-10;
+        }
+
+        .dosen-slider .owl-prev,
+        .fasilitas-slider .owl-prev{
+            @apply -left-5;
+        }
+        .dosen-slider .owl-next,
+        .fasilitas-slider .owl-next{
+            @apply -right-5;
+        }
+
+        .sponsor-slider{
+            @apply gap-5;
+        }
+        .sponsor-slider .item{
+            @apply w-auto;
+        }
+        .sponsor-slider-wrapper{
+            @apply w-[400%];
+        }
+    }
 
 }
