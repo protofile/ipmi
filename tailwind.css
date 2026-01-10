@@ -227,6 +227,9 @@
     .dosen-card img{
         @apply w-full h-[324px] object-contain;
     }
+    .dosen-card .text{
+        @apply mb-5;
+    }
     .dosen-card h4{
         @apply text-lg;
     }
